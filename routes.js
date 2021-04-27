@@ -32,4 +32,6 @@ var multer = require("multer"); //includes multer
 var upload = multer({dest: module.exports.UPLOAD_PATH});
 var imageCtrl = require('./controller/image-controller');
 
+router.post('/images', upload.single('image'), imageCtrl.uploadImage);
+
 module.exports = router;
