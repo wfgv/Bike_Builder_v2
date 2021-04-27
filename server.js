@@ -12,5 +12,3 @@ mongoose.connection.on('error', (err) => {
 mongoose.connection.on('connected', () => { 
     console.log('MongoDB is successfully connected');
 });
-
-app.use(require('./routes'));
