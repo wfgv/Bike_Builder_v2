@@ -3,15 +3,27 @@ router = express.Router();
 
 
 //--------------#####---------------
-// declaration
+// controllers declaration
 
 var itemCtrl = require('./controller/item-controller'),
 userCtrl = require('./controller/user-controller');
 
+var frameCtrl = require('./controller/frame-controller');
+
 
 //--------------#####---------------
-// End Points: 
-router.get('/hello', itemCtrl.getWorld);
+// GET home page: 
+router.get('/', function(req, res, next) {
+    res.render('home', {title: 'Express'});
+    
+});
+
+//--------------#####---------------
+// add frame: 
+router.post('/frames/add', frameCtrl.createFrame);
+//--------------#####---------------
+
+router.get('/frames', frameCtrl.getFrames);
 
 router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
 

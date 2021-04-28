@@ -11,16 +11,20 @@ var app = express();
 var port = 8000;
 
 app.use(express.static('views'));
+app.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
+app.use(express.json()); //We include support for JSON that is coming from the client
 
 app.set('view engine', 'ejs');
-app.get('/home', function(req,res) {
-    res.render("../views/home");
+app.get('/', function(req,res) {
+    
+    
 })
 
 dotenv.config();
 app.use(bodyParser.json()); //express use json
 app.use(logger('tiny'));
 
+//app.use('/', routes);
 app.use(require('./routes')); // included as a middleware
 
 const dbURI = process.env.DB_URL;

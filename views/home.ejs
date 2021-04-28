@@ -11,9 +11,8 @@
     <title>Bike Builder</title>
 
     <!-- Bootstrap CSS and Standard CSS overide-->
-    <link type="text/css" rel='stylesheet' href='/css/bikeBuilder.css' />
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bikeBuilder.css" rel="stylesheet">
+    <link href="/css/bikeBuilder.css" rel="stylesheet">
 
 </head>
 
@@ -49,6 +48,18 @@
                 <h1 class="mt-4">Build your custom Bike!!</h1>
                 <p class="lead">Select Components below</p>
                 <div class="input-group-append">
+                    <table>
+                        
+                        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                             <div class="input-group-text">
                                 
                                 <input type="checkbox" id="showPopularItems"
@@ -60,7 +71,7 @@
             </div>
             <div class="col-lg-4 order-2">
                 
-                <form id="mainForm" enctype="application/json" action="/post/json" method="post" novalidate>
+                <form id="mainForm" enctype="application/json" action="/add" method="post" novalidate>
                     <div class="form-group">
                         <p>Choose component to be added to the list:</p>
                         <select class="form-control" name="sec_n">
@@ -106,6 +117,27 @@
     <footer class="footer">
         <div class="container text-center"><span class="text-muted">&copy; WillianVoelz_2018447   2020</span></div>
     </footer>
+    <!-- Bootstrap JS  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/bikeBuilder.js"></script>
+
+    <script>
+        
+        window.addEventListener("load", function() {
+            document.forms[1].txtBillAmt.value = calculateBill('bikebuilder');
+            document.querySelector("#calcBill").addEventListener("click", function() {
+                document.forms[1].txtBillAmt.value = calculateBill('bikebuilder');
+            });
+            document.querySelector("#showPopularItems").addEventListener("click", function() {
+                highlightPopularItem('bikebuilder', this.checked);
+            });
+        });
+
+        
+    </script>
+
 
     
 
