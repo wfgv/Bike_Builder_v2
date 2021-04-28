@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bike Builder</title>
+
+    <!-- Bootstrap CSS and Standard CSS overide-->
+    <link type="text/css" rel='stylesheet' href='/css/bikeBuilder.css' />
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bikeBuilder.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BIKE BUILDER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-4">Build your custom Bike!!</h1>
+                <p class="lead">Select Components below</p>
+                <div class="input-group-append">
+                            <div class="input-group-text">
+                                
+                                <input type="checkbox" id="showPopularItems"
+                                    aria-label="Mark to highlight Popular Items" alt="Popular Items">
+                                    <p>&nbsp&nbsp&nbsp&nbsp</p>
+                                    <p class="lead">Trouble choosing? Tick the box in order to find out popular items</p>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-lg-4 order-2">
+                
+                <form id="mainForm" enctype="application/json" action="/post/json" method="post" novalidate>
+                    <div class="form-group">
+                        <p>Choose component to be added to the list:</p>
+                        <select class="form-control" name="sec_n">
+                            <p id="errorMsg"></p>
+                            
+                            <option value="0">Frame</option>
+                            <option value="1">Wheels</option>
+                            <option value="2">Groupset</option>
+                            <option value="3">Brakes</option>
+                        </select>
+
+                        <input id="inputBrand" class="form-control mt-3" type="text" name="brand" placeholder="Brand" required>
+                        <input id="inputModel" class="form-control mt-3" type="text" name="model" placeholder="Model" required>
+                        <input id="inputColour" class="form-control mt-3" type="text" name="colour" placeholder="Colour" required>
+                        <input id="inputRating" class="form-control mt-3" type="text" name="rating" placeholder="Rating" required>
+                        <input id="inputPrice" class="form-control mt-3" type="number" name="price" placeholder="Price" required>
+
+                        <button type="submit" class="btn btn-dark btn-block mt-3" onclick="formValidation()">Add</button>
+                    </div>
+                </form>
+                
+                <button id="delete" class="btn btn-dark btn-block mt-3">Delete</button>
+                <p class="text-muted text-center">Select row first in order to Delete</p>
+                
+                <form>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">&euro;</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Total" name="txtBillAmt">
+                        
+                        
+                        <input class="btn btn-block btn-danger mt-2" type="button" name="btnCalcBill"
+                            value="Calculate your bill" id="calcBill">
+                    </div>
+                </form>
+            </div>
+            <div id="results" class="col-lg-8"></div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center"><span class="text-muted">&copy; WillianVoelz_2018447   2020</span></div>
+    </footer>
+
+    
+
+</body>
+
+</html>
