@@ -15,7 +15,7 @@
     <link href="/css/bikeBuilder.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -59,6 +59,7 @@
                                 <th scope="col">Type</th>
                                 <th scope="col">Brand</th>
                                 <th scope="col">Model</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,12 +67,33 @@
                                 <%if (frame.type == "frame") { %>
                             <tr>
                                 <th scope="row">1</th>
+                                <td><%= frame.type %></td>
+                                <td><p><%= frame.brand %></p></td>
+                                <td> <p><%= frame.model %></p></td>
+                               
                                 <td>
-                                    <%= frame.type %>
-                                <td>
-                                    <p><%= frame.brand %></p>
-                                <td> 
-                                    <p><%= frame.model %></p>
+                                    <a href='/update/<%= frame.id%>' class="btn border-shadow update">
+                                        <span class = "text-gradient"><i class = "fas fa-pencil-alt"></i></span>
+
+                                    </a>
+                                    <a  action = '/deleteFrame/<%= frame.id%>'class="btn border-shadow delete" action="/deleteFrame/<%= frame.id%>" method="delete"id=<%= frame.id%>>
+                                        <span class = "text-gradient"><i class = "far fa-trash-alt" action="/deleteFrame/<%= frame.id%>" method="delete"></i></span>
+
+                                    </a>
+                                    <form action="/delete/<%= frame.id %>?_method=delete" method="POST"
+                                            class="d-inline">
+                                            
+                                            <button class="btn btn-danger" style="margin-left: 5px;"
+                                                type="submit">Delete</button>
+                                        </form>
+                                    <form action="/update/<%= frame.id %>?_method=update" method="POST"
+                                            class="d-inline">
+                                            
+                                            <button class="btn btn-danger" style="margin-left: 5px;"
+                                                type="submit">Update</button>
+                                        </form>
+                                    
+                                </td>    
                             </tr>
                             <% }}) %>
                            
@@ -86,6 +108,7 @@
                                 <th scope="col">Type</th>
                                 <th scope="col">Brand</th>
                                 <th scope="col">Model</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,12 +116,10 @@
                                 <%if (frame.type == "wheels") { %>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>
-                                    <%= frame.type %>
-                                <td>
-                                    <p><%= frame.brand %></p>
-                                <td> 
-                                    <p><%= frame.model %></p>
+                                <td><%= frame.type %></td>
+                                <td><p><%= frame.brand %></p></td>t
+                                <td> <p><%= frame.model %></p></td>
+                                    
                             </tr>
                             <% }}) %>
                            
@@ -176,9 +197,6 @@
 
 
     </script>
-
-
-
 
 </body>
 

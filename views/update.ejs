@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bike Builder</title>
+
+    <!-- Bootstrap CSS and Standard CSS overide-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bikeBuilder.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BIKE BUILDER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <form action="/deleteFrame/<%= frame.id %>?_method=delete" method="POST"
+                                            class="d-inline">
+                                            
+                                            <button class="btn btn-danger" style="margin-left: 5px;"
+                                                type="submit">Delete</button>
+                                        </form>
+    
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center"><span class="text-muted">&copy; WillianVoelz_2018447 2020</span></div>
+    </footer>
+    <!-- Bootstrap JS  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/bikeBuilder.js"></script>
+
+    <script>
+
+        window.addEventListener("load", function () {
+            document.forms[1].txtBillAmt.value = calculateBill('bikebuilder');
+            document.querySelector("#calcBill").addEventListener("click", function () {
+                document.forms[1].txtBillAmt.value = calculateBill('bikebuilder');
+            });
+            document.querySelector("#showPopularItems").addEventListener("click", function () {
+                highlightPopularItem('bikebuilder', this.checked);
+            });
+        });
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

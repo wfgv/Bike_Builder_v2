@@ -27,6 +27,36 @@ exports.getFrames = function(req, res) {
     } );
     
   };
+  //--------------#####---------------
+// read single Frame
+exports.getFrame = function(req, res) {
+  Frame.findOne({_id: req.params.id}, function (err, frame) {
+    if (err) {
+      res.status(400).json(err);
+    } 
+    res.json(frame);
+  }); 
+};
+  //--------------#####---------------
+// UPDATE frame
+  exports.updateFrame = function(req, res) {
+  Frame.findOneAndUpdate({_id: req.params.id}, req.body, {new: true},function (err, user) {
+    if (err) {
+      res.status(400).json(err);
+    } 
+    res.json(user);
+  }); 
+};
+//--------------#####---------------
+// DELETE frame
+exports.deleteFrame = function(req, res) {
+  Frame.findByIdAndRemove(req.params.id, function (err, user) {
+    if (err) {
+      res.status(400).json(err);
+    } 
+    res.redirect('/');
+  }); 
+};
   exports.getWheels = function(req, res) {
   Frame.find ({}, function (err, wheels) {
     if (err) {

@@ -10,6 +10,15 @@ var frameCtrl = require('./controller/frame-controller');
 //--------------#####---------------
 router.post('/addFrame', frameCtrl.createFrame);
 
+router.post('/delete/:id', frameCtrl.deleteFrame);
+
+router.post('/update:id', function(req, res, next) {
+    res.render('update');
+ });
+
+router.put('/deleteFrame/:id', frameCtrl.updateFrame);
+
+router.get('/frame/:id', frameCtrl.getFrame);
 
 router.post('/users', userCtrl.createUser);
 
