@@ -7,18 +7,20 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); 
 
+var frameCtrl = require('./controller/frame-controller');
 var app = express();
-var port = 8000;
+var port = 3000;
 
 app.use(express.static('views'));
 app.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
 app.use(express.json()); //We include support for JSON that is coming from the client
 
+
+
 app.set('view engine', 'ejs');
-app.get('/', function(req,res) {
-    
-    
-})
+app.get('/', frameCtrl.getFrames);
+//app.get('/', frameCtrl.getWheels);
+
 
 dotenv.config();
 app.use(bodyParser.json()); //express use json

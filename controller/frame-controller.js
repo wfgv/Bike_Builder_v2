@@ -9,21 +9,33 @@ exports.createFrame = function(req, res) {
             res.status (400).json(err);
         }
 
-        res.json(frame); 
+        res.render('home'); 
 });
 };
 
 //--------------#####---------------
 // read ALL frames
 exports.getFrames = function(req, res) {
-  Frame.find({}, function (err, frames) {
+  Frame.find ({}, function (err, frames) {
     if (err) {
       res.status(400).json(err); 
     } 
     console.log(frames);
+    //JSON.stringify(frames);
+    //res.render('home' , {'frames': frames})
+    res.render('home', {'frames': frames});
+    } );
     
-    res.json(frames);
-
+  };
+  exports.getWheels = function(req, res) {
+  Frame.find ({}, function (err, wheels) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    console.log(wheels);
+    //JSON.stringify(frames);
+    //res.render('home' , {'frames': frames})
+    res.render('home', {'wheels': wheels});
     } );
     
   };

@@ -1,35 +1,18 @@
 const express = require('express'),
 router = express.Router();
 
-
 //--------------#####---------------
 // controllers declaration
 
-var itemCtrl = require('./controller/item-controller'),
-userCtrl = require('./controller/user-controller');
-
+var userCtrl = require('./controller/user-controller');
 var frameCtrl = require('./controller/frame-controller');
 
-
 //--------------#####---------------
-// GET home page: 
-router.get('/', function(req, res, next) {
-    res.render('home', {title: 'Express'});
-    
-});
+router.post('/allframes', frameCtrl.createFrame);
 
-//--------------#####---------------
-// add frame: 
-router.post('/frames/add', frameCtrl.createFrame);
-//--------------#####---------------
-
-router.get('/frames', frameCtrl.getFrames);
-
-router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
-
-router.get('/hello', itemCtrl.postWorld);
 
 router.post('/users', userCtrl.createUser);
+
 router.get('/users', userCtrl.getUsers);
 
 router.get('/users/:id', userCtrl.getUser);
@@ -38,6 +21,8 @@ router.put('/users/:id', userCtrl.updateUser);
 
 router.delete('/users/:id', userCtrl.deleteUser);
 
+//--------------#####---------------
+// Image related
 module.exports.UPLOAD_PATH = "uploads";
 
 var multer = require("multer"); //includes multer
