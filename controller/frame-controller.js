@@ -9,7 +9,7 @@ exports.createFrame = function(req, res) {
             res.status (400).json(err);
         }
 
-        res.render('home'); 
+        res.redirect('/');
 });
 };
 

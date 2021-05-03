@@ -8,7 +8,7 @@ var userCtrl = require('./controller/user-controller');
 var frameCtrl = require('./controller/frame-controller');
 
 //--------------#####---------------
-router.post('/allframes', frameCtrl.createFrame);
+router.post('/addFrame', frameCtrl.createFrame);
 
 
 router.post('/users', userCtrl.createUser);

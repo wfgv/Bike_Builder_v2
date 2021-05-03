@@ -9,7 +9,8 @@ exports.createUser = function(req, res) {
             res.status (400).json(err);
         }
 
-        res.json(user); 
+        
+        res.redirect('/');
 });
 };
 //--------------#####---------------
