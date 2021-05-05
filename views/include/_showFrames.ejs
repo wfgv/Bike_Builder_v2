@@ -1,0 +1,24 @@
+<% for(var i = 0; i < components.length; i++) { %>
+    <%if (components[i].category == "Frames") { %>
+<tr>
+    <td><%= i + 1 %></td> 
+    <td><%= components[i].category %></td>
+    <td><%= components[i].brand %></td>
+    <td><%= components[i].model %></td>
+    <td><%= components[i].colour %></td>
+    <td><%= components[i].rating %></td>
+    <td><%= components[i].price %></td>
+    <td>
+        <a href="/update-component?id=<%= components[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= components[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-trash"></i></span>
+        </a>
+        <a class="btn border-shadow" > 
+            <span class="text-gradient"><i class="fas fa-plus"></i></span>
+        </a>
+    </td>
+</tr>
+
+<% }} %>

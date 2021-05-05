@@ -1,0 +1,46 @@
+<!-- form handling -->
+ <form action="/api/components" method="POST" id="add_component">
+    <div class="new_component">
+        <div class="form-group">
+            <label for="category" class="text-light">Category</label>
+            <br>
+            <select class="form-control" name="category">
+                            <p id="errorMsg"></p>
+
+                            <option value="Frames">Frames</option>
+                            <option value="Wheels">Wheels</option>
+                            <option value="Groupsets">Groupsets</option>
+                            <option value="Handlebars">Handlebars</option>
+                        </select>
+            
+            <input type="hidden" name="id" value=""> 
+            <!-- <input type="text" name="category" value="" placeholder="Category"> -->
+        </div><br>
+        <div class="form-group">
+            <label for="Brand" class="text-light">Brand</label>
+            <input type="text" name="brand" value="" placeholder="Brand">
+        </div>
+        <div class="form-group">
+            <label for="Model" class="text-light">Model</label>
+            <input type="text" name="model" value="" placeholder="Model">
+        </div>
+        <div class="form-group">
+            <label for="Colour" class="text-light">Colour</label>
+            <input type="text" name="colour" value="" placeholder="Colour">
+        </div>
+        <div class="form-group">
+            <label for="Rating" class="text-light">Rating</label>
+            <input type="text" name="rating" value="" placeholder="Rating">
+        </div>
+        <div class="form-group">
+            <label for="Price" class="text-light">Price</label>
+            <input type="text" name="price" value="" placeholder="Price">
+        </div>
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>

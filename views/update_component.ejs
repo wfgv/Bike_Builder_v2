@@ -1,0 +1,63 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-arrow-left"></i> All components</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update components</h2>
+            <span class="text-light">Use the below form to Update a component</span>
+        </div>
+
+        <!-- add component form -->
+         <!-- form handling -->
+ <form method="POST" id="update_component">
+    <div class="new_component">
+        <div class="form-group">
+            <label for="name" class="text-light">Category</label>
+            <input type="hidden" name="id" value="<%= component._id %>"> 
+            <input type="text" name="category" value="<%= component.category %>" placeholder="Category">
+        </div>
+        <div class="form-group">
+            <br>
+            <label for="Brand" class="text-light">Brand</label>
+            <input type="text" name="brand" value="<%= component.brand%>" placeholder="Brand">
+        </div>
+        <div class="form-group">
+            <label for="Model" class="text-light">Model</label>
+            <input type="text" name="model" value="<%= component.model%>" placeholder="Model">
+        </div>
+        <div class="form-group">
+            <label for="Colour" class="text-light">Colour</label>
+            <input type="text" name="colour" value="<%= component.colour%>" placeholder="Colour">
+        </div>
+        <div class="form-group">
+            <label for="Rating" class="text-light">Rating</label>
+            <input type="text" name="rating" value="<%= component.rating%>" placeholder="Rating">
+        </div>
+        <div class="form-group">
+            <label for="Price" class="text-light">Price</label>
+            <input type="text" name="price" value="<%= component.price%>" placeholder="Price">
+        </div>
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
